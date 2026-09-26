@@ -1,0 +1,1060 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Artful Abode | Interior Design</title><meta
+name="description"
+content="Artful Abode creates elegant, functional and personalised interiors designed around the way you live."
+
+«»
+
+  <meta name="theme-color" content="#293126">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >  <style>
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #f7f4ed;
+      color: #282822;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    /* ==================================================
+       VARIABLES
+    ================================================== */
+
+    :root {
+      --cream: #f7f4ed;
+      --cream-dark: #ebe5d8;
+      --olive: #293126;
+      --olive-light: #3c4638;
+      --brown: #806a4e;
+      --gold: #c4a16b;
+      --text: #282822;
+      --muted: #77736b;
+      --white: #ffffff;
+      --border: rgba(41, 49, 38, 0.13);
+    }
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      padding: 17px 5%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      transition: 0.3s;
+    }
+
+    .header.scrolled {
+      background: rgba(247, 244, 237, 0.96);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    }
+
+    .header.scrolled .logo,
+    .header.scrolled .nav a,
+    .header.scrolled .menu-button {
+      color: var(--olive);
+    }
+
+    .logo {
+      color: white;
+      line-height: 0.8;
+    }
+
+    .logo-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .logo-small {
+      display: block;
+      text-align: center;
+      font-size: 7px;
+      letter-spacing: 4px;
+      margin-top: 8px;
+      color: var(--gold);
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav a {
+      color: white;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: 0.25s;
+    }
+
+    .nav a:hover {
+      color: var(--gold);
+    }
+
+    .header-button {
+      padding: 10px 18px;
+      border: 1px solid var(--gold);
+      color: white !important;
+    }
+
+    .header.scrolled .header-button {
+      color: var(--olive) !important;
+    }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .hero {
+      min-height: 100vh;
+      min-height: 720px;
+
+      display: flex;
+      align-items: center;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(31, 27, 22, 0.88),
+          rgba(31, 27, 22, 0.60),
+          rgba(31, 27, 22, 0.10)
+        ),
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=90")
+        center / cover no-repeat;
+
+      color: white;
+    }
+
+    .hero-content {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding-top: 80px;
+    }
+
+    .eyebrow {
+      color: #d6b77c;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(65px, 10vw, 125px);
+      line-height: 0.78;
+      font-weight: 400;
+      letter-spacing: -2px;
+    }
+
+    .hero-tagline {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: clamp(30px, 4vw, 48px);
+      margin-top: 28px;
+    }
+
+    .hero-text {
+      max-width: 460px;
+      margin-top: 18px;
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 14px 24px;
+
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+
+      border: 1px solid var(--gold);
+
+      transition: 0.3s;
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .button-gold:hover {
+      background: #ae8750;
+    }
+
+    .button-outline {
+      color: white;
+    }
+
+    .button-outline:hover {
+      background: white;
+      color: var(--olive);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 5%;
+
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ==================================================
+       COMMON SECTIONS
+    ================================================== */
+
+    section {
+      padding: 90px 5%;
+    }
+
+    .section-label {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(42px, 6vw, 65px);
+      line-height: 0.95;
+      font-weight: 500;
+    }
+
+    .section-description {
+      text-align: center;
+      max-width: 600px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ==================================================
+       SERVICES
+    ================================================== */
+
+    .services {
+      background: var(--cream);
+    }
+
+    .service-grid {
+      max-width: 1200px;
+      margin: 55px auto 0;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service {
+      text-align: center;
+      padding: 20px 30px;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .service:last-child {
+      border-right: 0;
+    }
+
+    .service-icon {
+      width: 62px;
+      height: 62px;
+
+      display: grid;
+      place-items: center;
+
+      margin: auto auto 20px;
+
+      border-radius: 50%;
+
+      background: var(--cream-dark);
+
+      font-size: 23px;
+      color: var(--brown);
+    }
+
+    .service h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    /* ==================================================
+       ABOUT
+    ================================================== */
+
+    .about {
+      padding: 0;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      background: #eee9df;
+    }
+
+    .about-image {
+      min-height: 620px;
+
+      background:
+        url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90")
+        center / cover no-repeat;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+
+      padding: 80px 10%;
+    }
+
+    .about-content .section-label {
+      text-align: left;
+    }
+
+    .about-content h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(44px, 5vw, 65px);
+      line-height: 0.95;
+      font-weight: 500;
+    }
+
+    .about-content p {
+      max-width: 500px;
+      color: var(--muted);
+      margin-top: 25px;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      margin-top: 40px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .value {
+      padding-top: 20px;
+      border-right: 1px solid var(--border);
+      margin-right: 15px;
+    }
+
+    .value:last-child {
+      border-right: 0;
+    }
+
+    .value-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      color: var(--brown);
+    }
+
+    .value-text {
+      display: block;
+      margin-top: 5px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* ==================================================
+       CONCEPT GALLERY
+    ================================================== */
+
+    .gallery {
+      background: var(--cream);
+    }
+
+    .gallery-grid {
+      max-width: 1200px;
+      margin: 50px auto 0;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .gallery-item {
+      height: 290px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+      height: 588px;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding: 45px 20px 18px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,0.75)
+        );
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+    }
+
+    .concept-note {
+      text-align: center;
+      max-width: 700px;
+      margin: 30px auto 0;
+
+      font-size: 12px;
+      color: #8a857c;
+    }
+
+    /* ==================================================
+       PROCESS
+    ================================================== */
+
+    .process {
+      background: #eee9df;
+    }
+
+    .process-grid {
+      max-width: 1000px;
+      margin: 55px auto 0;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 20px;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .process-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 50px;
+      color: var(--gold);
+    }
+
+    .process-step h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      margin-top: 5px;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    /* ==================================================
+       CONTACT
+    ================================================== */
+
+    .contact {
+      background: var(--olive);
+      color: white;
+    }
+
+    .contact-wrapper {
+      max-width: 1100px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .contact .section-label {
+      text-align: left;
+      color: var(--gold);
+    }
+
+    .contact h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(45px, 6vw, 70px);
+      line-height: 0.95;
+      font-weight: 400;
+    }
+
+    .contact-text {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+    }
+
+    .contact-details {
+      margin-top: 25px;
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .contact-details a {
+      color: rgba(255,255,255,0.82);
+      transition: 0.25s;
+    }
+
+    .contact-details a:hover {
+      color: var(--gold);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+
+      border: 1px solid rgba(255,255,255,0.2);
+
+      background: rgba(255,255,255,0.06);
+
+      color: white;
+
+      padding: 15px;
+
+      outline: none;
+
+      font-size: 13px;
+    }
+
+    .contact-form select option {
+      color: #222;
+    }
+
+    .contact-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: var(--gold);
+    }
+
+    .submit-button {
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+      background: var(--cream);
+      padding: 35px 5%;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 25px;
+    }
+
+    .footer-logo {
+      color: var(--olive);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .copyright {
+      text-align: center;
+
+      margin-top: 25px;
+
+      color: #99948b;
+
+      font-size: 10px;
+    }
+
+    /* ==================================================
+       WHATSAPP BUTTON
+    ================================================== */
+
+    .whatsapp {
+      position: fixed;
+
+      right: 18px;
+      bottom: 18px;
+
+      z-index: 999;
+
+      width: 57px;
+      height: 57px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background: #25D366;
+      color: white;
+
+      font-size: 27px;
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.2);
+
+      transition: 0.3s;
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ==================================================
+       REVEAL ANIMATION
+    ================================================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 850px) {
+
+      .header {
+        padding: 16px 5%;
+      }
+
+      .nav {
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+        left: 5%;
+        right: 5%;
+
+        padding: 25px;
+
+        flex-direction: column;
+
+        background: var(--olive);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        color: white !important;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero {
+        min-height: 720px;
+
+        background:
+          linear-gradient(
+            rgba(29,25,20,0.67),
+            rgba(29,25,20,0.80)
+          ),
+          url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85")
+          center / cover;
+      }
+
+      .hero-content {
+        width: 90%;
+        padding-top: 80px;
+      }
+
+      .hero h1 {
+        font-size: 75px;
+      }
+
+      .hero-tagline {
+        font-size: 36px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 430px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.large {
+        grid-column: span 2;
+        height: 430px;
+      }
+
+      .gallery-item {
+        height: 230px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+
+      section {
+        padding: 75px 5%;
+      }
+
+      .logo-name {
+        font-size: 23px;
+      }
+
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero h1 {
+        font-size: 64px;
+      }
+
+      .hero-tagline {
+        font-size: 32px;
+      }
+
+      .hero-text {
+        font-size: 13px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .button {
+        width: 100%;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        padding: 30px 20px;
+      }
+
+      .about-image {
+        min-height: 360px;
+      }
+
+      .about-content {
+        padding: 65px 7%;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .value {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item.large {
+        grid-column: auto;
+        height: 390px;
+      }
+
+      .gallery-item {
+        height: 280px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding-bottom: 110px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+    }
+
+  </style></head><body><!-- ==================================================
+     HEADER
+================================================== --><header class="header" id="header">  <a href="#home" class="logo"><span class="logo-name">
+  ARTFUL ABODE
+</span>
+
+<span class="logo-small">
+  INTERIORS
+</span>
+
+  </a>  <nav class="nav" id="nav"><a href="#home">Home</a>
+
+<a href="#services">Services</a>
+
+<a href="#concepts">Concepts</a>
+
+<a href="#about">About</a>
+
+<a href="#contact" class="header-button">
+  Start a Project
+</a>
+
+  </nav><button
+class="menu-button"
+id="menuButton"
+aria-label="Open menu"
+
+«»
+
+☰
+
+  </button></header><!-- ==================================================
+     HERO
+================================================== --><section class="hero" id="home">  <div class="hero-content reveal"><div class="eyebrow">
+  Interior Design & Styling
+</div>
+
+<h1>
+  ARTFUL<br>
+  ABODE
+</h1>
+
+<div class="hero-tagline">
+  Spaces that feel like you.
+</div>
+
+<p class="hero-text">
+  Thoughtfully designed interiors that bring together
+  beauty, comfort and functionality — created around
+  the way you live.
+</p>
+
+<div class="hero-buttons">
+
+  <a href="#concepts" class="button button-gold">
+    Explore Designs →
+  </a>
+
+  <a href="#contact" class="button button-outline">
+    Start Your Project
+  </a>
+
+</div>
+
+  </div>  <div class="scroll-down">
+    Scroll to explore ↓
+  </div></section><!-- ==================================================
+     SERVICES
+================================================== --><section class="services" id="services">  <div class="section-label">
+    What We Do
+  </div>  <h2 class="section-title">
+    Designed around your life.
+  </h2>  <p class="section-description">
+    From a single room to an entire home,
+    every detail is considered with intention.
+  </p>  <div class="service-grid"><article class="service reveal">
+
+  <div class="service-icon">
+    ⌂
+  </div>
+
+  <h3>
+    Residential Interiors
+  </h3>
+
+  <p>
+    Personalised homes designed around
+    your lifestyle, taste and needs.
+  </p>
+
+</article>
+
+<article class="service reveal">
+
+  <div class="service-icon">
+    ▦
+  </div>
+
+  <h3>
+    Modular Kitchens
+  </h3>
+
+  <p>
+    Smart storage, beautiful finishes
+    a
