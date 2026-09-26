@@ -1,21 +1,37 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Artful Abode | Interior Design</title><meta
-name="description"
-content="Artful Abode creates elegant, functional and personalised interiors designed around the way you live."
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-«»
+  <title>Artful Abode | Interior Design</title>
 
-  <meta name="theme-color" content="#293126">  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap"
+  <meta
+    name="description"
+    content="Artful Abode creates elegant, functional and personalised interiors designed around the way you live."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet"
-  >  <style>
+  >
 
-    /* ==================================================
-       RESET
-    ================================================== */
+  <style>
+    :root {
+      --cream: #f7f4ed;
+      --cream-dark: #ebe5d8;
+      --olive: #293126;
+      --olive-light: #3c4638;
+      --brown: #806a4e;
+      --gold: #c4a16b;
+      --text: #282822;
+      --muted: #77736b;
+      --white: #ffffff;
+      --border: rgba(41, 49, 38, 0.12);
+    }
 
     * {
       margin: 0;
@@ -29,10 +45,13 @@ content="Artful Abode creates elegant, functional and personalised interiors des
 
     body {
       font-family: "DM Sans", sans-serif;
-      background: #f7f4ed;
-      color: #282822;
-      line-height: 1.6;
+      background: var(--cream);
+      color: var(--text);
       overflow-x: hidden;
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     img {
@@ -41,694 +60,812 @@ content="Artful Abode creates elegant, functional and personalised interiors des
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
-    button,
-    input,
-    textarea,
-    select {
+    button {
       font-family: inherit;
     }
 
-    /* ==================================================
-       VARIABLES
-    ================================================== */
-
-    :root {
-      --cream: #f7f4ed;
-      --cream-dark: #ebe5d8;
-      --olive: #293126;
-      --olive-light: #3c4638;
-      --brown: #806a4e;
-      --gold: #c4a16b;
-      --text: #282822;
-      --muted: #77736b;
-      --white: #ffffff;
-      --border: rgba(41, 49, 38, 0.13);
-    }
-
-    /* ==================================================
+    /* =========================
        HEADER
-    ================================================== */
+    ========================= */
 
-    .header {
+    header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 1000;
-
-      padding: 17px 5%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      transition: 0.3s;
-    }
-
-    .header.scrolled {
-      background: rgba(247, 244, 237, 0.96);
+      background: rgba(247, 244, 237, 0.94);
       backdrop-filter: blur(15px);
-      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-    }
-
-    .header.scrolled .logo,
-    .header.scrolled .nav a,
-    .header.scrolled .menu-button {
-      color: var(--olive);
-    }
-
-    .logo {
-      color: white;
-      line-height: 0.8;
-    }
-
-    .logo-name {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 27px;
-      letter-spacing: 1px;
-      font-weight: 500;
-    }
-
-    .logo-small {
-      display: block;
-      text-align: center;
-      font-size: 7px;
-      letter-spacing: 4px;
-      margin-top: 8px;
-      color: var(--gold);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
+      max-width: 1250px;
+      margin: auto;
+      height: 82px;
+      padding: 0 25px;
+
       display: flex;
-      gap: 28px;
       align-items: center;
+      justify-content: space-between;
     }
 
-    .nav a {
-      color: white;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: 0.25s;
+    .logo {
+      color: var(--olive);
+      line-height: 1;
     }
 
-    .nav a:hover {
-      color: var(--gold);
+    .logo-main {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 2px;
     }
 
-    .header-button {
-      padding: 10px 18px;
-      border: 1px solid var(--gold);
+    .logo-sub {
+      display: block;
+      margin-top: 5px;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--brown);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--brown);
+    }
+
+    .nav-btn {
+      padding: 12px 20px;
+      background: var(--olive);
       color: white !important;
+      border-radius: 2px;
     }
 
-    .header.scrolled .header-button {
-      color: var(--olive) !important;
-    }
-
-    .menu-button {
+    .menu-btn {
       display: none;
-      border: 0;
+      border: none;
       background: transparent;
-      color: white;
-      font-size: 26px;
+      font-size: 27px;
       cursor: pointer;
+      color: var(--olive);
     }
 
-    /* ==================================================
+    /* =========================
        HERO
-    ================================================== */
+    ========================= */
 
     .hero {
       min-height: 100vh;
-      min-height: 720px;
+      padding: 150px 25px 80px;
 
       display: flex;
       align-items: center;
-
-      position: relative;
 
       background:
         linear-gradient(
           90deg,
-          rgba(31, 27, 22, 0.88),
-          rgba(31, 27, 22, 0.60),
-          rgba(31, 27, 22, 0.10)
+          rgba(41,49,38,0.78),
+          rgba(41,49,38,0.25)
         ),
         url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=90")
-        center / cover no-repeat;
-
-      color: white;
+        center/cover no-repeat;
     }
 
     .hero-content {
-      width: 90%;
-      max-width: 1200px;
+      max-width: 1250px;
+      width: 100%;
       margin: auto;
-      padding-top: 80px;
+      color: white;
     }
 
     .eyebrow {
-      color: #d6b77c;
-      font-size: 10px;
-      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 20px;
+      color: var(--gold);
     }
 
     .hero h1 {
+      max-width: 750px;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(65px, 10vw, 125px);
-      line-height: 0.78;
-      font-weight: 400;
-      letter-spacing: -2px;
+      font-size: clamp(55px, 8vw, 100px);
+      line-height: 0.9;
+      font-weight: 500;
+      margin-bottom: 28px;
     }
 
-    .hero-tagline {
-      font-family: "Cormorant Garamond", serif;
-      font-style: italic;
-      font-size: clamp(30px, 4vw, 48px);
-      margin-top: 28px;
-    }
-
-    .hero-text {
-      max-width: 460px;
-      margin-top: 18px;
-      color: rgba(255,255,255,0.82);
-      font-size: 15px;
+    .hero p {
+      max-width: 600px;
+      font-size: 16px;
       line-height: 1.8;
+      color: rgba(255,255,255,0.86);
+      margin-bottom: 35px;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 12px;
-      margin-top: 30px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
-    .button {
+    .btn {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-
-      padding: 14px 24px;
-
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-
-      border: 1px solid var(--gold);
-
+      justify-content: center;
+      padding: 15px 26px;
+      border: 1px solid transparent;
+      cursor: pointer;
       transition: 0.3s;
+      font-size: 13px;
     }
 
-    .button-gold {
+    .btn-primary {
       background: var(--gold);
       color: white;
     }
 
-    .button-gold:hover {
-      background: #ae8750;
+    .btn-primary:hover {
+      background: #ae8a55;
     }
 
-    .button-outline {
+    .btn-outline {
+      border-color: rgba(255,255,255,0.5);
       color: white;
     }
 
-    .button-outline:hover {
+    .btn-outline:hover {
       background: white;
       color: var(--olive);
     }
 
-    .scroll-down {
-      position: absolute;
-      bottom: 30px;
-      left: 5%;
-
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* ==================================================
-       COMMON SECTIONS
-    ================================================== */
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
 
     section {
-      padding: 90px 5%;
+      padding: 110px 25px;
     }
 
-    .section-label {
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 9px;
-      letter-spacing: 4px;
-      color: var(--brown);
-      margin-bottom: 12px;
+    .container {
+      max-width: 1250px;
+      margin: auto;
     }
 
-    .section-title {
+    .section-heading {
+      margin-bottom: 55px;
+    }
+
+    .section-heading.center {
       text-align: center;
+    }
+
+    .section-heading h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 6vw, 65px);
-      line-height: 0.95;
+      font-size: clamp(42px, 5vw, 65px);
       font-weight: 500;
+      line-height: 1;
+      color: var(--olive);
+      margin-bottom: 16px;
     }
 
-    .section-description {
-      text-align: center;
-      max-width: 600px;
-      margin: 18px auto 0;
+    .section-heading p {
+      max-width: 620px;
       color: var(--muted);
-      font-size: 14px;
+      line-height: 1.8;
     }
 
-    /* ==================================================
+    .section-heading.center p {
+      margin: auto;
+    }
+
+    /* =========================
        SERVICES
-    ================================================== */
+    ========================= */
 
     .services {
       background: var(--cream);
     }
 
-    .service-grid {
-      max-width: 1200px;
-      margin: 55px auto 0;
-
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
     }
 
     .service {
-      text-align: center;
-      padding: 20px 30px;
-
-      border-right: 1px solid var(--border);
+      background: var(--cream);
+      padding: 45px 35px;
     }
 
-    .service:last-child {
-      border-right: 0;
-    }
-
-    .service-icon {
-      width: 62px;
-      height: 62px;
-
-      display: grid;
-      place-items: center;
-
-      margin: auto auto 20px;
-
-      border-radius: 50%;
-
-      background: var(--cream-dark);
-
-      font-size: 23px;
-      color: var(--brown);
+    .service-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      color: var(--gold);
+      margin-bottom: 25px;
     }
 
     .service h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 25px;
-      font-weight: 500;
+      font-size: 31px;
+      color: var(--olive);
+      margin-bottom: 15px;
+      font-weight: 600;
     }
 
     .service p {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      margin-top: 10px;
+      line-height: 1.8;
+      font-size: 14px;
     }
 
-    /* ==================================================
+    /* =========================
        ABOUT
-    ================================================== */
+    ========================= */
 
     .about {
-      padding: 0;
+      background: var(--cream-dark);
+    }
 
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-
-      background: #eee9df;
-    }
-
-    .about-image {
-      min-height: 620px;
-
-      background:
-        url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90")
-        center / cover no-repeat;
-    }
-
-    .about-content {
-      display: flex;
+      gap: 70px;
       align-items: center;
-
-      padding: 80px 10%;
     }
 
-    .about-content .section-label {
-      text-align: left;
+    .about-image img {
+      height: 600px;
+      object-fit: cover;
     }
 
-    .about-content h2 {
+    .about-text h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(44px, 5vw, 65px);
+      font-size: clamp(45px, 5vw, 68px);
+      color: var(--olive);
       line-height: 0.95;
       font-weight: 500;
+      margin-bottom: 25px;
     }
 
-    .about-content p {
-      max-width: 500px;
+    .about-text p {
       color: var(--muted);
-      margin-top: 25px;
-      font-size: 14px;
       line-height: 1.9;
+      margin-bottom: 18px;
+      font-size: 15px;
     }
 
-    .values {
+    /* =========================
+       PROJECT GALLERY
+    ========================= */
+
+    .projects {
+      background: var(--olive);
+      color: white;
+    }
+
+    .projects .section-heading h2 {
+      color: white;
+    }
+
+    .projects .section-heading p {
+      color: rgba(255,255,255,0.68);
+    }
+
+    .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-      margin-top: 40px;
-
-      border-top: 1px solid var(--border);
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
     }
 
-    .value {
-      padding-top: 20px;
-      border-right: 1px solid var(--border);
-      margin-right: 15px;
-    }
-
-    .value:last-child {
-      border-right: 0;
-    }
-
-    .value-number {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 30px;
-      color: var(--brown);
-    }
-
-    .value-text {
-      display: block;
-      margin-top: 5px;
-      font-size: 11px;
-      line-height: 1.5;
-    }
-
-    /* ==================================================
-       CONCEPT GALLERY
-    ================================================== */
-
-    .gallery {
-      background: var(--cream);
-    }
-
-    .gallery-grid {
-      max-width: 1200px;
-      margin: 50px auto 0;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .gallery-item {
-      height: 290px;
+    .project-card {
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      min-height: 390px;
+      background: #20271f;
     }
 
-    .gallery-item.large {
-      grid-column: span 2;
-      grid-row: span 2;
-      height: 588px;
+    .project-card:nth-child(1) {
+      grid-column: span 7;
     }
 
-    .gallery-item img {
+    .project-card:nth-child(2) {
+      grid-column: span 5;
+    }
+
+    .project-card:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .project-card:nth-child(4) {
+      grid-column: span 7;
+    }
+
+    .project-card:nth-child(5) {
+      grid-column: span 12;
+      min-height: 420px;
+    }
+
+    .project-card img {
       height: 100%;
       object-fit: cover;
       transition: transform 0.7s ease;
     }
 
-    .gallery-item:hover img {
+    .project-card:hover img {
       transform: scale(1.06);
     }
 
-    .gallery-caption {
+    .project-overlay {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
 
-      padding: 45px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
-      color: white;
+      padding: 30px;
 
       background:
         linear-gradient(
-          transparent,
-          rgba(0,0,0,0.75)
+          transparent 30%,
+          rgba(0,0,0,0.78)
         );
 
+      transition: 0.3s;
+    }
+
+    .project-card:hover .project-overlay {
+      background:
+        linear-gradient(
+          transparent 15%,
+          rgba(0,0,0,0.85)
+        );
+    }
+
+    .project-overlay span {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    .project-overlay h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 22px;
+      font-size: 35px;
+      font-weight: 500;
     }
 
-    .concept-note {
-      text-align: center;
-      max-width: 700px;
-      margin: 30px auto 0;
-
-      font-size: 12px;
-      color: #8a857c;
+    .click-text {
+      font-size: 11px;
+      margin-top: 10px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: 0.3s;
     }
 
-    /* ==================================================
-       PROCESS
-    ================================================== */
-
-    .process {
-      background: #eee9df;
+    .project-card:hover .click-text {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .process-grid {
-      max-width: 1000px;
-      margin: 55px auto 0;
+    /* =========================
+       PROJECT MODAL
+    ========================= */
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+
+      display: none;
+      background: rgba(19, 23, 19, 0.96);
+
+      overflow-y: auto;
+      padding: 30px;
+    }
+
+    .project-modal.active {
+      display: block;
+    }
+
+    .modal-container {
+      max-width: 1250px;
+      min-height: calc(100vh - 60px);
+      margin: auto;
 
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 20px;
+      grid-template-columns: 1.45fr 0.8fr;
+      background: var(--cream);
     }
 
-    .process-step {
-      text-align: center;
-      padding: 20px;
+    .modal-gallery {
+      position: relative;
+      background: #111;
+      min-height: 750px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .process-number {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 50px;
-      color: var(--gold);
+    .modal-main-image {
+      position: relative;
+      flex: 1;
+      min-height: 550px;
     }
 
-    .process-step h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
-      margin-top: 5px;
+    .modal-main-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 550px;
+      object-fit: cover;
     }
 
-    .process-step p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-      margin-top: 8px;
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 48px;
+      height: 48px;
+
+      border: 1px solid rgba(255,255,255,0.5);
+      background: rgba(0,0,0,0.35);
+      color: white;
+
+      border-radius: 50%;
+      cursor: pointer;
+
+      font-size: 22px;
+      z-index: 5;
     }
 
-    /* ==================================================
-       CONTACT
-    ================================================== */
+    .gallery-arrow:hover {
+      background: white;
+      color: var(--olive);
+    }
 
-    .contact {
+    .gallery-prev {
+      left: 20px;
+    }
+
+    .gallery-next {
+      right: 20px;
+    }
+
+    .thumbnail-container {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      background: #111;
+    }
+
+    .thumbnail {
+      width: 90px;
+      height: 65px;
+      flex-shrink: 0;
+      cursor: pointer;
+      opacity: 0.5;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .thumbnail img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumbnail.active {
+      opacity: 1;
+      border-color: var(--gold);
+    }
+
+    .modal-content {
+      position: relative;
+      padding: 65px 45px;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid var(--border);
+      background: transparent;
+
+      font-size: 25px;
+      cursor: pointer;
+      color: var(--olive);
+    }
+
+    .modal-close:hover {
       background: var(--olive);
       color: white;
     }
 
-    .contact-wrapper {
-      max-width: 1100px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 70px;
-      align-items: center;
+    .modal-category {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-size: 10px;
+      margin-bottom: 12px;
     }
 
-    .contact .section-label {
-      text-align: left;
+    .modal-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 55px;
+      line-height: 0.95;
+      color: var(--olive);
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .modal-description {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .modal-content h4 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--olive);
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 35px;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding: 10px 0 10px 20px;
+      color: var(--muted);
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
       color: var(--gold);
     }
 
-    .contact h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(45px, 6vw, 70px);
-      line-height: 0.95;
-      font-weight: 400;
+    .modal-cta {
+      display: inline-flex;
+      background: var(--olive);
+      color: white;
+      padding: 15px 23px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
     }
 
-    .contact-text {
-      margin-top: 20px;
-      color: rgba(255,255,255,0.68);
+    .modal-counter {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      color: white;
+      background: rgba(0,0,0,0.45);
+      padding: 8px 12px;
+      font-size: 11px;
+      z-index: 10;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      background: var(--cream);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .process-item {
+      border-top: 1px solid var(--olive);
+      padding-top: 22px;
+    }
+
+    .process-item span {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .process-item h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--olive);
+      font-size: 29px;
+      margin: 15px 0 10px;
+    }
+
+    .process-item p {
+      color: var(--muted);
+      line-height: 1.7;
       font-size: 13px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background: var(--cream-dark);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 65px;
+      line-height: 0.9;
+      color: var(--olive);
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
     }
 
     .contact-details {
-      margin-top: 25px;
       display: grid;
-      gap: 10px;
-      font-size: 13px;
+      gap: 15px;
     }
 
-    .contact-details a {
-      color: rgba(255,255,255,0.82);
-      transition: 0.25s;
+    .contact-detail {
+      color: var(--text);
+      font-size: 14px;
     }
 
-    .contact-details a:hover {
-      color: var(--gold);
+    .contact-detail strong {
+      display: block;
+      color: var(--olive);
+      margin-bottom: 4px;
     }
 
     .contact-form {
-      display: grid;
-      gap: 12px;
+      background: var(--cream);
+      padding: 40px;
     }
 
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
       width: 100%;
-
-      border: 1px solid rgba(255,255,255,0.2);
-
-      background: rgba(255,255,255,0.06);
-
-      color: white;
-
-      padding: 15px;
-
+      padding: 14px 15px;
+      border: 1px solid var(--border);
+      background: transparent;
       outline: none;
-
-      font-size: 13px;
+      font-family: inherit;
+      color: var(--text);
     }
 
-    .contact-form select option {
-      color: #222;
-    }
-
-    .contact-form textarea {
-      min-height: 110px;
+    .form-group textarea {
+      min-height: 120px;
       resize: vertical;
     }
 
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: rgba(255,255,255,0.55);
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus {
-      border-color: var(--gold);
-    }
-
-    .submit-button {
-      border: 0;
-      cursor: pointer;
+    .form-submit {
       width: 100%;
+      border: none;
+      background: var(--olive);
+      color: white;
+      padding: 16px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    /* ==================================================
+    .form-submit:hover {
+      background: var(--olive-light);
+    }
+
+    /* =========================
        FOOTER
-    ================================================== */
+    ========================= */
 
     footer {
-      background: var(--cream);
-      padding: 35px 5%;
+      background: var(--olive);
+      color: white;
+      padding: 45px 25px;
     }
 
     .footer-inner {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: auto;
 
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      gap: 25px;
+      gap: 20px;
     }
 
     .footer-logo {
-      color: var(--olive);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      letter-spacing: 2px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 20px;
-
+    .footer-copy {
+      color: rgba(255,255,255,0.55);
       font-size: 11px;
-      color: var(--muted);
     }
 
-    .copyright {
-      text-align: center;
-
-      margin-top: 25px;
-
-      color: #99948b;
-
-      font-size: 10px;
-    }
-
-    /* ==================================================
-       WHATSAPP BUTTON
-    ================================================== */
+    /* =========================
+       WHATSAPP
+    ========================= */
 
     .whatsapp {
       position: fixed;
+      right: 22px;
+      bottom: 22px;
 
-      right: 18px;
-      bottom: 18px;
-
-      z-index: 999;
-
-      width: 57px;
-      height: 57px;
+      width: 58px;
+      height: 58px;
 
       border-radius: 50%;
-
-      display: grid;
-      place-items: center;
-
       background: #25D366;
       color: white;
 
-      font-size: 27px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      box-shadow:
-        0 8px 30px rgba(0,0,0,0.2);
+      font-size: 26px;
+      z-index: 2000;
 
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
       transition: 0.3s;
     }
 
@@ -736,325 +873,1280 @@ content="Artful Abode creates elegant, functional and personalised interiors des
       transform: translateY(-4px);
     }
 
-    /* ==================================================
-       REVEAL ANIMATION
-    ================================================== */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ==================================================
+    /* =========================
        MOBILE
-    ================================================== */
+    ========================= */
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
 
-      .header {
-        padding: 16px 5%;
-      }
-
-      .nav {
-        display: none;
-
+      .nav-links {
         position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
 
-        top: 72px;
-        left: 5%;
-        right: 5%;
-
-        padding: 25px;
-
+        display: none;
         flex-direction: column;
+        gap: 0;
 
-        background: var(--olive);
-
-        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      }
-
-      .nav.open {
-        display: flex;
-      }
-
-      .nav a {
-        color: white !important;
-      }
-
-      .menu-button {
-        display: block;
-      }
-
-      .hero {
-        min-height: 720px;
-
-        background:
-          linear-gradient(
-            rgba(29,25,20,0.67),
-            rgba(29,25,20,0.80)
-          ),
-          url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85")
-          center / cover;
-      }
-
-      .hero-content {
-        width: 90%;
-        padding-top: 80px;
-      }
-
-      .hero h1 {
-        font-size: 75px;
-      }
-
-      .hero-tagline {
-        font-size: 36px;
-      }
-
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .service {
-        border-right: 0;
+        background: var(--cream);
         border-bottom: 1px solid var(--border);
       }
 
-      .about {
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 17px 25px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .about-image {
-        min-height: 430px;
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-item.large {
-        grid-column: span 2;
-        height: 430px;
-      }
-
-      .gallery-item {
-        height: 230px;
+      .services-grid {
+        grid-template-columns: 1fr;
       }
 
       .process-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .contact-wrapper {
+      .project-card:nth-child(n) {
+        grid-column: span 12;
+        min-height: 380px;
+      }
+
+      .modal-container {
         grid-template-columns: 1fr;
-        gap: 40px;
+      }
+
+      .modal-gallery {
+        min-height: 500px;
+      }
+
+      .modal-main-image,
+      .modal-main-image img {
+        min-height: 420px;
+      }
+
+      .modal-content {
+        padding: 50px 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 80px 18px;
+      }
+
+      .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero h1 {
+        font-size: 57px;
+      }
+
+      .about-image img {
+        height: 450px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info h2 {
+        font-size: 52px;
+      }
+
+      .contact-form {
+        padding: 25px 20px;
+      }
+
+      .project-card:nth-child(n) {
+        min-height: 300px;
+      }
+
+      .project-overlay h3 {
+        font-size: 30px;
+      }
+
+      .project-modal {
+        padding: 0;
+      }
+
+      .modal-container {
+        min-height: 100vh;
+      }
+
+      .modal-gallery {
+        min-height: 390px;
+      }
+
+      .modal-main-image,
+      .modal-main-image img {
+        min-height: 330px;
+      }
+
+      .modal-title {
+        font-size: 45px;
+      }
+
+      .thumbnail {
+        width: 75px;
+        height: 55px;
       }
 
       .footer-inner {
         flex-direction: column;
+        align-items: flex-start;
       }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <nav class="nav">
+
+      <a href="#home" class="logo">
+        <span class="logo-main">ARTFUL ABODE</span>
+        <span class="logo-sub">INTERIORS</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#process">Process</a></li>
+        <li>
+          <a href="#contact" class="nav-btn">Let's Talk</a>
+        </li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Interior Design Studio
+      </div>
+
+      <h1>
+        Spaces that feel like home.
+      </h1>
+
+      <p>
+        Artful Abode creates elegant, functional and personalised
+        interiors designed around the way you live.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          Explore Our Work
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Start Your Project
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SERVICES
+  ========================== -->
+
+  <section class="services" id="services">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">What We Do</div>
+
+        <h2>
+          Thoughtful design.<br>
+          Beautiful living.
+        </h2>
+
+        <p>
+          From concept to completion, we create interiors that
+          combine aesthetics, comfort and everyday functionality.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service">
+          <div class="service-number">01</div>
+          <h3>Residential Interiors</h3>
+          <p>
+            Complete interior solutions for apartments, villas,
+            independent homes and luxury residences.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-number">02</div>
+          <h3>Modular Design</h3>
+          <p>
+            Beautifully planned kitchens, wardrobes, TV units and
+            storage solutions designed for your lifestyle.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-number">03</div>
+          <h3>Turnkey Interiors</h3>
+          <p>
+            A seamless design-to-execution experience managed
+            from the first idea to the final detail.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================== -->
+
+  <section class="about" id="about">
+
+    <div class="container about-grid">
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+          alt="Artful Abode interior"
+        >
+      </div>
+
+      <div class="about-text">
+
+        <div class="eyebrow">About Artful Abode</div>
+
+        <h2>
+          Designed around<br>
+          the way you live.
+        </h2>
+
+        <p>
+          We believe a beautiful home should not only look good,
+          but also feel effortless to live in.
+        </p>
+
+        <p>
+          Our design approach combines timeless materials,
+          thoughtful planning and personal details to create
+          spaces that truly belong to you.
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+          Work With Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECTS
+  ========================== -->
+
+  <section class="projects" id="projects">
+
+    <div class="container">
+
+      <div class="section-heading center">
+
+        <div class="eyebrow">Our Work</div>
+
+        <h2>
+          Explore our concepts.
+        </h2>
+
+        <p>
+          Click any space to explore the complete design concept,
+          images and key features.
+        </p>
+
+      </div>
+
+
+      <div class="project-grid" id="projectGrid">
+
+        <!-- Cards are created by JavaScript -->
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECT MODAL
+  ========================== -->
+
+  <div class="project-modal" id="projectModal">
+
+    <div class="modal-container">
+
+      <div class="modal-gallery">
+
+        <div class="modal-counter" id="modalCounter">
+          1 / 3
+        </div>
+
+        <button
+          class="gallery-arrow gallery-prev"
+          id="prevBtn"
+          aria-label="Previous image"
+        >
+          ‹
+        </button>
+
+        <div class="modal-main-image">
+          <img
+            id="modalImage"
+            src=""
+            alt=""
+          >
+        </div>
+
+        <button
+          class="gallery-arrow gallery-next"
+          id="nextBtn"
+          aria-label="Next image"
+        >
+          ›
+        </button>
+
+        <div
+          class="thumbnail-container"
+          id="thumbnailContainer"
+        ></div>
+
+      </div>
+
+
+      <div class="modal-content">
+
+        <button
+          class="modal-close"
+          id="modalClose"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        <div
+          class="modal-category"
+          id="modalCategory"
+        ></div>
+
+        <h2
+          class="modal-title"
+          id="modalTitle"
+        ></h2>
+
+        <p
+          class="modal-description"
+          id="modalDescription"
+        ></p>
+
+        <h4>
+          Design Highlights
+        </h4>
+
+        <ul
+          class="feature-list"
+          id="featureList"
+        ></ul>
+
+        <a
+          href="#contact"
+          class="modal-cta"
+          id="modalCTA"
+        >
+          Start Your Project →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       PROCESS
+  ========================== -->
+
+  <section class="process" id="process">
+
+    <div class="container">
+
+      <div class="section-heading center">
+
+        <div class="eyebrow">Our Process</div>
+
+        <h2>
+          From idea to home.
+        </h2>
+
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-item">
+          <span>01 — DISCOVER</span>
+          <h3>We Listen</h3>
+          <p>
+            We understand your lifestyle, preferences,
+            needs and vision.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <span>02 — DESIGN</span>
+          <h3>We Create</h3>
+          <p>
+            Concepts, layouts, materials and details are
+            developed around your space.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <span>03 — EXECUTE</span>
+          <h3>We Build</h3>
+          <p>
+            Our team coordinates the execution with
+            attention to quality and detail.
+          </p>
+        </div>
+
+        <div class="process-item">
+          <span>04 — DELIVER</span>
+          <h3>You Live</h3>
+          <p>
+            Your finished space is ready for you to
+            experience and enjoy.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTACT
+  ========================== -->
+
+  <section class="contact" id="contact">
+
+    <div class="container contact-grid">
+
+      <div class="contact-info">
+
+        <div class="eyebrow">Let's Create</div>
+
+        <h2>
+          Your home,<br>
+          beautifully.
+        </h2>
+
+        <p>
+          Tell us a little about your project and our team
+          will get in touch with you.
+        </p>
+
+        <div class="contact-details">
+
+          <div class="contact-detail">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/918073261358" target="_blank">
+              +91 80732 61358
+            </a>
+          </div>
+
+          <div class="contact-detail">
+            <strong>Phone</strong>
+            <a href="tel:+919742364463">
+              +91 97423 64463
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <form class="contact-form" id="contactForm">
+
+        <div class="form-group">
+          <label>Your Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Project Type</label>
+
+          <select id="projectType">
+
+            <option value="Full Home Interior">
+              Full Home Interior
+            </option>
+
+            <option value="Modular Kitchen">
+              Modular Kitchen
+            </option>
+
+            <option value="Living Room">
+              Living Room
+            </option>
+
+            <option value="Bedroom">
+              Bedroom
+            </option>
+
+            <option value="TV Unit">
+              TV Unit
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Tell Us About Your Project</label>
+
+          <textarea
+            id="message"
+            placeholder="Tell us about your home, location, requirements..."
+          ></textarea>
+
+        </div>
+
+        <button
+          type="submit"
+          class="form-submit"
+        >
+          Send Enquiry on WhatsApp
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+        <div class="footer-logo">
+          ARTFUL ABODE
+        </div>
+
+        <div class="logo-sub">
+          INTERIORS
+        </div>
+      </div>
+
+      <div class="footer-copy">
+        © 2026 Artful Abode. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       WHATSAPP BUTTON
+  ========================== -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/918073261358"
+    target="_blank"
+    aria-label="Chat on WhatsApp"
+  >
+    ☎
+  </a>
+
+
+  <script>
+
+    /* ==========================================
+       PROJECT DATA
+    ========================================== */
+
+    const projects = [
+
+      {
+        title: "Modern Living",
+        category: "Living Room",
+        cover:
+          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=90",
+
+        images: [
+
+          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90"
+
+        ],
+
+        description:
+          "A warm contemporary living space designed around comfort, natural textures and clean architectural lines. Neutral tones create a calm backdrop while carefully selected lighting and furniture add character.",
+
+        features: [
+          "Contemporary furniture layout",
+          "Warm ambient lighting",
+          "Natural wood finishes",
+          "Elegant neutral palette",
+          "Custom storage solutions"
+        ]
+      },
+
+
+      {
+        title: "Contemporary Kitchen",
+        category: "Kitchen",
+        cover:
+          "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
+
+        images: [
+
+          "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=90"
+
+        ],
+
+        description:
+          "A refined contemporary kitchen balancing functionality with understated luxury. Clean cabinetry, generous storage and carefully selected materials create an efficient yet sophisticated cooking space.",
+
+        features: [
+          "Handleless modular cabinets",
+          "Quartz countertop",
+          "Tall-unit storage",
+          "Soft-close hardware",
+          "Integrated lighting",
+          "Functional work triangle"
+        ]
+      },
+
+
+      {
+        title: "Master Bedroom",
+        category: "Bedroom",
+        cover:
+          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=90",
+
+        images: [
+
+          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1617325710236-4a36d2f1a8f1?auto=format&fit=crop&w=1600&q=90"
+
+        ],
+
+        description:
+          "A serene master bedroom designed as a private retreat. Soft textures, warm lighting and custom storage create an elegant environment that feels comfortable and timeless.",
+
+        features: [
+          "Statement bed wall",
+          "Custom wardrobes",
+          "Warm indirect lighting",
+          "Soft neutral materials",
+          "Bedside storage",
+          "Relaxed luxury styling"
+        ]
+      },
+
+
+      {
+        title: "Elegant TV Unit",
+        category: "TV Unit",
+        cover:
+          "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1400&q=90",
+
+        images: [
+
+          "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=90"
+
+        ],
+
+        description:
+          "A sophisticated entertainment wall that combines the television, display elements and hidden storage into one cohesive design.",
+
+        features: [
+          "Floating TV console",
+          "Decorative wall panelling",
+          "Hidden cable management",
+          "Display niches",
+          "Ambient LED lighting"
+        ]
+      },
+
+
+      {
+        title: "Dining Space",
+        category: "Dining",
+        cover:
+          "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1400&q=90",
+
+        images: [
+
+          "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1600&q=90",
+
+          "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=90"
+
+        ],
+
+        description:
+          "A welcoming dining space designed for everyday family meals as well as entertaining guests. Natural materials and soft lighting create an intimate atmosphere.",
+
+        features: [
+          "Custom dining wall",
+          "Statement lighting",
+          "Natural wood finishes",
+          "Decorative storage",
+          "Comfortable seating layout"
+        ]
+      }
+
+    ];
+
+
+    /* ==========================================
+       ELEMENTS
+    ========================================== */
+
+    const projectGrid =
+      document.getElementById("projectGrid");
+
+    const modal =
+      document.getElementById("projectModal");
+
+    const modalImage =
+      document.getElementById("modalImage");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalCategory =
+      document.getElementById("modalCategory");
+
+    const modalDescription =
+      document.getElementById("modalDescription");
+
+    const featureList =
+      document.getElementById("featureList");
+
+    const thumbnailContainer =
+      document.getElementById("thumbnailContainer");
+
+    const modalCounter =
+      document.getElementById("modalCounter");
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+    const prevBtn =
+      document.getElementById("prevBtn");
+
+    const nextBtn =
+      document.getElementById("nextBtn");
+
+
+    let currentProject = 0;
+    let currentImage = 0;
+
+
+    /* ==========================================
+       CREATE LANDING PAGE PROJECT CARDS
+    ========================================== */
+
+    function renderProjects() {
+
+      projectGrid.innerHTML = "";
+
+      projects.forEach((project, index) => {
+
+        const card = document.createElement("div");
+
+        card.className = "project-card";
+
+        card.innerHTML = `
+
+          <img
+            src="${project.cover}"
+            alt="${project.title}"
+            loading="lazy"
+          >
+
+          <div class="project-overlay">
+
+            <span>${project.category}</span>
+
+            <h3>${project.title}</h3>
+
+            <div class="click-text">
+              Click to explore project →
+            </div>
+
+          </div>
+
+        `;
+
+        card.addEventListener("click", () => {
+          openProject(index);
+        });
+
+        projectGrid.appendChild(card);
+
+      });
 
     }
 
-    @media (max-width: 520px) {
 
-      section {
-        padding: 75px 5%;
-      }
+    /* ==========================================
+       OPEN PROJECT
+    ========================================== */
 
-      .logo-name {
-        font-size: 23px;
-      }
+    function openProject(index) {
 
-      .hero {
-        min-height: 720px;
-      }
+      currentProject = index;
+      currentImage = 0;
 
-      .hero h1 {
-        font-size: 64px;
-      }
+      const project =
+        projects[currentProject];
 
-      .hero-tagline {
-        font-size: 32px;
-      }
+      modalTitle.textContent =
+        project.title;
 
-      .hero-text {
-        font-size: 13px;
-      }
+      modalCategory.textContent =
+        project.category;
 
-      .hero-buttons {
-        flex-direction: column;
-      }
+      modalDescription.textContent =
+        project.description;
 
-      .hero-buttons .button {
-        width: 100%;
-      }
 
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
+      featureList.innerHTML = "";
 
-      .service {
-        padding: 30px 20px;
-      }
+      project.features.forEach(feature => {
 
-      .about-image {
-        min-height: 360px;
-      }
+        const li =
+          document.createElement("li");
 
-      .about-content {
-        padding: 65px 7%;
-      }
+        li.textContent = feature;
 
-      .values {
-        grid-template-columns: 1fr;
-      }
+        featureList.appendChild(li);
 
-      .value {
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
+      });
 
-        padding-bottom: 15px;
-        margin-bottom: 10px;
-      }
 
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
+      createThumbnails();
 
-      .gallery-item.large {
-        grid-column: auto;
-        height: 390px;
-      }
+      updateMainImage();
 
-      .gallery-item {
-        height: 280px;
-      }
+      modal.classList.add("active");
 
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
+      document.body.classList.add("modal-open");
 
-      .contact {
-        padding-bottom: 110px;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+      document.querySelector(".project-modal")
+        .scrollTo({
+          top: 0,
+          behavior: "instant"
+        });
 
     }
 
-  </style></head><body><!-- ==================================================
-     HEADER
-================================================== --><header class="header" id="header">  <a href="#home" class="logo"><span class="logo-name">
-  ARTFUL ABODE
-</span>
 
-<span class="logo-small">
-  INTERIORS
-</span>
+    /* ==========================================
+       CLOSE PROJECT
+    ========================================== */
 
-  </a>  <nav class="nav" id="nav"><a href="#home">Home</a>
+    function closeProject() {
 
-<a href="#services">Services</a>
+      modal.classList.remove("active");
 
-<a href="#concepts">Concepts</a>
+      document.body.classList.remove("modal-open");
 
-<a href="#about">About</a>
+    }
 
-<a href="#contact" class="header-button">
-  Start a Project
-</a>
 
-  </nav><button
-class="menu-button"
-id="menuButton"
-aria-label="Open menu"
+    /* ==========================================
+       MAIN IMAGE
+    ========================================== */
 
-«»
+    function updateMainImage() {
 
-☰
+      const project =
+        projects[currentProject];
 
-  </button></header><!-- ==================================================
-     HERO
-================================================== --><section class="hero" id="home">  <div class="hero-content reveal"><div class="eyebrow">
-  Interior Design & Styling
-</div>
+      const image =
+        project.images[currentImage];
 
-<h1>
-  ARTFUL<br>
-  ABODE
-</h1>
+      modalImage.src = image;
 
-<div class="hero-tagline">
-  Spaces that feel like you.
-</div>
+      modalImage.alt =
+        project.title + " interior design";
 
-<p class="hero-text">
-  Thoughtfully designed interiors that bring together
-  beauty, comfort and functionality — created around
-  the way you live.
-</p>
+      modalCounter.textContent =
+        `${currentImage + 1} / ${project.images.length}`;
 
-<div class="hero-buttons">
 
-  <a href="#concepts" class="button button-gold">
-    Explore Designs →
-  </a>
+      document
+        .querySelectorAll(".thumbnail")
+        .forEach((thumbnail, index) => {
 
-  <a href="#contact" class="button button-outline">
-    Start Your Project
-  </a>
+          thumbnail.classList.toggle(
+            "active",
+            index === currentImage
+          );
 
-</div>
+        });
 
-  </div>  <div class="scroll-down">
-    Scroll to explore ↓
-  </div></section><!-- ==================================================
-     SERVICES
-================================================== --><section class="services" id="services">  <div class="section-label">
-    What We Do
-  </div>  <h2 class="section-title">
-    Designed around your life.
-  </h2>  <p class="section-description">
-    From a single room to an entire home,
-    every detail is considered with intention.
-  </p>  <div class="service-grid"><article class="service reveal">
+    }
 
-  <div class="service-icon">
-    ⌂
-  </div>
 
-  <h3>
-    Residential Interiors
-  </h3>
+    /* ==========================================
+       THUMBNAILS
+    ========================================== */
 
-  <p>
-    Personalised homes designed around
-    your lifestyle, taste and needs.
-  </p>
+    function createThumbnails() {
 
-</article>
+      thumbnailContainer.innerHTML = "";
 
-<article class="service reveal">
+      const project =
+        projects[currentProject];
 
-  <div class="service-icon">
-    ▦
-  </div>
+      project.images.forEach((image, index) => {
 
-  <h3>
-    Modular Kitchens
-  </h3>
+        const thumbnail =
+          document.createElement("div");
 
-  <p>
-    Smart storage, beautiful finishes
-    a
+        thumbnail.className = "thumbnail";
+
+        thumbnail.innerHTML = `
+          <img
+            src="${image}"
+            alt="Project image ${index + 1}"
+          >
+        `;
+
+        thumbnail.addEventListener(
+          "click",
+          () => {
+
+            currentImage = index;
+
+            updateMainImage();
+
+          }
+        );
+
+        thumbnailContainer.appendChild(
+          thumbnail
+        );
+
+      });
+
+    }
+
+
+    /* ==========================================
+       NEXT IMAGE
+    ========================================== */
+
+    function nextImage() {
+
+      const project =
+        projects[currentProject];
+
+      currentImage =
+        (currentImage + 1)
+        % project.images.length;
+
+      updateMainImage();
+
+    }
+
+
+    /* ==========================================
+       PREVIOUS IMAGE
+    ========================================== */
+
+    function previousImage() {
+
+      const project =
+        projects[currentProject];
+
+      currentImage =
+        (currentImage - 1 + project.images.length)
+        % project.images.length;
+
+      updateMainImage();
+
+    }
+
+
+    /* ==========================================
+       BUTTON EVENTS
+    ========================================== */
+
+    modalClose.addEventListener(
+      "click",
+      closeProject
+    );
+
+    nextBtn.addEventListener(
+      "click",
+      nextImage
+    );
+
+    prevBtn.addEventListener(
+      "click",
+      previousImage
+    );
+
+
+    /* ==========================================
+       CLOSE WHEN CLICKING OUTSIDE
+    ========================================== */
+
+    modal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === modal
+        ) {
+          closeProject();
+        }
+
+      }
+    );
+
+
+    /* ==========================================
+       ESCAPE KEY
+    ========================================== */
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          !modal.classList.contains("active")
+        ) {
+          return;
+        }
+
+        if (event.key === "Escape") {
+          closeProject();
+        }
+
+        if (event.key === "ArrowRight") {
+          nextImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+          previousImage();
+        }
+
+      }
+    );
+
+
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menuBtn.addEventListener(
+      "click",
+      () => {
+
+        navLinks.classList.toggle(
+          "active"
+        );
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+            navLinks.classList.remove(
+              "active"
+            );
+          }
+        );
+
+      });
+
+
+    /* ==========================================
+       WHATSAPP CONTACT FORM
+    ========================================== */
+
+    const contactForm =
+      document.getElementById("contactForm");
+
+    contactForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        const name =
+          document.getElementById("name").value;
+
+        const phone =
+          document.getElementById("phone").value;
+
+        const projectType =
+          document.getElementById("projectType").value;
+
+        const message =
+          document.getElementById("message").value;
+
+
+        const whatsappMessage =
+`Hello Artful Abode,
+
+I would like to discuss an interior design project.
+
+Name: ${name}
+Phone: ${phone}
+Project Type: ${projectType}
+
+Project Details:
+${message}`;
+
+
+        const url =
+          "https://wa.me/918073261358?text=" +
+          encodeURIComponent(whatsappMessage);
+
+
+        window.open(
+          url,
+          "_blank"
+        );
+
+      }
+    );
+
+
+    /* ==========================================
+       INITIALIZE
+    ========================================== */
+
+    renderProjects();
+
+  </script>
+
+</body>
+</html>
